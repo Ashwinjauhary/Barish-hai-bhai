@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baarish Hai Bhai! | Powered by Catalyst Crew</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1a2a6c, #2a4d69, #4b86b4);
+      color: #fff;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      perspective: 1000px;
+    }
+
+    /* Catalyst Crew Sponsorship Banner */
+    .sponsor-banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: linear-gradient(135deg, #3c0a0a, #6c1a1a);
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 1rem;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .sponsor-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .sponsor-logo {
+      font-weight: bold;
+      font-size: 1.3rem;
+      background: linear-gradient(45deg, #ff0000, #ff1e1e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+        .sponsor-logo-img {
+      height: 35px;
+      margin-right: 10px;
+      filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.7));
+    }
+
+    /* Adjust sponsor-left to center items vertically */
+    .sponsor-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .sponsor-text {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+    
+    .sponsor-team {
+      display: flex;
+      gap: 20px;
+      padding-right: 20px;
+      font-size: 0.8rem;
+    }
+    
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .team-name {
+      font-weight: bold;
+      color: #00bfff;
+    }
+    
+    .team-title {
+      font-size: 0.7rem;
+      opacity: 0.8;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 20px;
+      z-index: 20;
+      max-width: 600px;
+      width: 90%;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      transform-style: preserve-3d;
+      transition: transform 0.5s;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 40px; /* Added space for sponsor banner */
+    }
+
+    .container:hover {
+      transform: translateY(-10px) rotateX(3deg);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+      background: linear-gradient(45deg, #ff0000, #ff1e1e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleGlow 3s infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% { text-shadow: 0 0 10px rgba(255, 0, 0, 0.7); }
+      100% { text-shadow: 0 0 20px rgba(255, 0, 0, 0.9), 0 0 30px rgba(255, 0, 0, 0.5); }
+    }
+
+    p {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+      min-height: 80px;
+      line-height: 1.6;
+      padding: 15px;
+      border-radius: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #funnyText::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 14px 28px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(45deg, #00bfff, #0066cc);
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    button i {
+      font-size: 1.2rem;
+    }
+
+    button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      background: linear-gradient(45deg, #00ccff, #0088ff);
+    }
+
+    button:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    #noBtn {
+      background: linear-gradient(45deg, #ff4d4d, #cc0000);
+    }
+
+    #noBtn:hover {
+      background: linear-gradient(45deg, #ff6666, #ff0000);
+    }
+
+    #shareBtn {
+      background: linear-gradient(45deg, #4CAF50, #2E7D32);
+    }
+
+    #shareBtn:hover {
+      background: linear-gradient(45deg, #66BB6A, #388E3C);
+    }
+
+    .counter {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .counter-box {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 15px;
+      border-radius: 10px;
+      min-width: 80px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .counter-value {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #00bfff;
+    }
+
+    .counter-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      margin-top: 5px;
+    }
+
+    .umbrella {
+      position: absolute;
+      top: 70px; /* Adjusted for sponsor banner */
+      right: 20px;
+      font-size: 3rem;
+      animation: float 4s infinite ease-in-out;
+      z-index: 30;
+    }
+
+    .cloud {
+      position: absolute;
+      top: 60px; /* Adjusted for sponsor banner */
+      left: 10px;
+      font-size: 3rem;
+      animation: float 5s infinite ease-in-out;
+      z-index: 30;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      z-index: 30;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+    }
+
+    .rain-intensity {
+      margin: 20px auto;
+      width: 80%;
+      max-width: 300px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 50px;
+    }
+
+    .intensity-label {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 10px;
+      -webkit-appearance: none;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 5px;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #00bfff;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+    }
+
+    .message-box {
+      position: relative;
+      margin: 25px 0;
+    }
+
+    .typing-indicator {
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      display: flex;
+      gap: 3px;
+      opacity: 0.7;
+    }
+
+    .typing-dot {
+      width: 8px;
+      height: 8px;
+      background: #00bfff;
+      border-radius: 50%;
+      animation: typing 1.4s infinite ease-in-out;
+    }
+
+    .typing-dot:nth-child(1) { animation-delay: 0s; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typing {
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
+    }
+
+    @media (max-width: 900px) {
+      .sponsor-banner {
+        flex-direction: column;
+        padding: 8px;
+        height: auto;
+      }
+      
+      .sponsor-team {
+        padding: 10px 0 0;
+        gap: 15px;
+      }
+      
+      .sponsor-text {
+        font-size: 0.8rem;
+      }
+      
+      .team-member {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2.2rem; }
+      p { font-size: 1.2rem; }
+      .counter-box { min-width: 70px; }
+      .counter-value { font-size: 1.8rem; }
+      button { padding: 12px 20px; }
+      
+      .sponsor-banner {
+        font-size: 0.8rem;
+      }
+      
+      .sponsor-logo {
+        font-size: 1.1rem;
+      }
+      
+      .sponsor-team {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Catalyst Crew Sponsorship Banner -->
+ <div class="sponsor-banner">
+    <div class="sponsor-left">
+      <!-- Added logo here -->
+      <img src="catalyst crew banner.jpg" alt="Catalyst Crew Logo" class="sponsor-logo-img">
+      <div class="sponsor-logo">CATALYST CREW</div>
+      <div class="sponsor-text"></div>
+    </div>
+    
+    <div class="sponsor-team">
+      <div class="team-member">
+        <div class="team-name">ARPIT BAJPAI</div>
+        <div class="team-title">FOUNDER & CEO</div>
+      </div>
+      <div class="team-member">
+        <div class="team-name">ASHWIN JAUHARY</div>
+        <div class="team-title">MANAGING DIRECTOR</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="umbrella">☔</div>
+  <div class="cloud">☁️</div>
+  <canvas id="rainCanvas"></canvas>
+  
+  <div class="container">
+    <h1>🌧️ Baarish Hai Bhai! 🌧️</h1>
+    
+    <div class="message-box">
+      <p id="funnyText">College jaane ka mann toh tha... par baarish dekh li. 😌</p>
+      <div class="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>
+    </div>
+    
+    <div class="rain-intensity">
+      <div class="intensity-label">
+        <i class="fas fa-cloud-rain"></i>
+        <span>Rain Intensity</span>
+        <i class="fas fa-cloud-showers-heavy"></i>
+      </div>
+      <input type="range" min="1" max="10" value="5" id="rainSlider">
+    </div>
+    
+    <div class="counter">
+      <div class="counter-box">
+        <div class="counter-value" id="msgCounter">0</div>
+        <div class="counter-label">Messages Seen</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-value" id="skipCounter">0</div>
+        <div class="counter-label">College Skips</div>
+      </div>
+      <div class="counter-box">
+        <div class="counter-value" id="rainTime">02:00</div>
+        <div class="counter-label">Rain Stops In</div>
+      </div>
+    </div>
+    
+    <div class="btn-container">
+      <button id="changeMsg">
+        <i class="fas fa-comment-dots"></i> Aur Suno...
+      </button>
+      <button id="noBtn">
+        <i class="fas fa-ban"></i> Nahi Jaunga!
+      </button>
+      <button id="shareBtn">
+        <i class="fas fa-share-alt"></i> Share
+      </button>
+    </div>
+  </div>
+  
+  <div class="footer">
+    | ©Powered by Catalyst Crew |
+  </div>
+  
+  <audio id="noSound" preload="auto">
+    <source src="no.mp3" type="audio/mp3">
+  </audio>
+  <audio id="rainSound" preload="auto">
+    <source src="real-rain-sound-379215.mp3" type="audio/mp3">
+  </audio>
+  
+  <script>
+    const messages = [
+      "Bike leke nikle the, paani ne dhoka de diya. 💔",
+      "Attendance gayi bhaad mein, chai aur pakode laao! ☕🧆",
+      "Teacher bhi nahi aayenge... shayad. 😏",
+      "Ye mausam ka jadoo hai mitwa! 🎶",
+      "Aaj baarish, kal dhoop, par college kabhi nahi! 😎",
+      "Shoes gile ho gaye, ab toh sach mein impossible hai jana. 👟💦",
+      "Baarish mein sirf hero jaate hain... hum toh coder hain. 👨‍💻",
+      "Bus aayi nahi, aur mann bhi gaya. 🚌💤",
+      "Chalo ek aur nap le lete hain, baarish ke bahane. 😴🌧️",
+      "Baarish = Mood off = College off. Simple math. 📉",
+      "College ka gate dekhte hi paani double ho gaya. 😩",
+      "Mummy bhi boli - beta mat ja, bheeg jaayega. 👩‍👦",
+      "Kya faayda jaake? Notes bhi toh bheeg jaate. 📚💧",
+      "Baarish ki thandak mein chai ki chuskiyan... college kya? 🍵",
+      "Raincheck on college, permanent pass for pajamas! 🛌",
+      "Weather app ne toh mana kar diya jaane se. App hai toh proof hai! 📱",
+      "Clouds ne signal diya: Netflix and chill! 📺",
+      "Raindrop on window = tear on attendance sheet. 😢",
+      "Mausam ka mood hai romantic... college ka nahi! 💑",
+      "Thunder ne kaha: Aaj kuchh zyada hi ho gaya! ⚡"
+    ];
+
+    // Initialize counters
+    let msgCount = 0;
+    let skipCount = 0;
+    let rainDuration = 120; // 2 minutes in seconds
+    
+    // DOM Elements
+    const funnyText = document.getElementById('funnyText');
+    const msgCounter = document.getElementById('msgCounter');
+    const skipCounter = document.getElementById('skipCounter');
+    const rainTime = document.getElementById('rainTime');
+    const rainSlider = document.getElementById('rainSlider');
+    const rainSound = document.getElementById('rainSound');
+    
+    // Update counters display
+    function updateCounters() {
+      msgCounter.textContent = msgCount;
+      skipCounter.textContent = skipCount;
+    }
+    
+    // Format time as MM:SS
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+    }
+    
+    // Initialize rain canvas
+    const canvas = document.getElementById('rainCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    // Raindrops array
+    let raindrops = [];
+    const rainIntensity = 100; // Base intensity
+    
+    // Raindrop class
+    class Raindrop {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * -canvas.height;
+        this.speed = 2 + Math.random() * 8;
+        this.length = 5 + Math.random() * 15;
+        this.opacity = 0.1 + Math.random() * 0.5;
+      }
+      
+      update() {
+        this.y += this.speed;
+        if (this.y > canvas.height) {
+          this.y = Math.random() * -100;
+          this.x = Math.random() * canvas.width;
+        }
+      }
+      
+      draw() {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + this.length);
+        ctx.strokeStyle = `rgba(174, 194, 224, ${this.opacity})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    }
+    
+    // Initialize raindrops
+    function initRain() {
+      raindrops = [];
+      const intensity = parseInt(rainSlider.value);
+      const dropCount = rainIntensity * intensity;
+      
+      for (let i = 0; i < dropCount; i++) {
+        raindrops.push(new Raindrop());
+      }
+    }
+    
+    // Animate rain
+    function animateRain() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw semi-transparent overlay
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      
+      // Update and draw raindrops
+      raindrops.forEach(drop => {
+        drop.update();
+        drop.draw();
+      });
+      
+      requestAnimationFrame(animateRain);
+    }
+    
+    // Typewriter effect for messages
+    function typeMessage(message, element, speed = 30) {
+      let i = 0;
+      element.textContent = '';
+      
+      const typing = setInterval(() => {
+        if (i < message.length) {
+          element.textContent += message.charAt(i);
+          i++;
+        } else {
+          clearInterval(typing);
+        }
+      }, speed);
+    }
+    
+    // Update rain time display
+    function updateRainTime() {
+      rainTime.textContent = formatTime(rainDuration);
+      
+      if (rainDuration > 0) {
+        rainDuration--;
+        setTimeout(updateRainTime, 1000);
+      } else {
+        rainDuration = Math.floor(Math.random() * 300) + 60; // 1-5 minutes
+        setTimeout(updateRainTime, 1000);
+      }
+    }
+    
+    // Event Listeners
+    document.getElementById('changeMsg').addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      typeMessage(messages[randomIndex], funnyText, 40);
+      
+      msgCount++;
+      updateCounters();
+    });
+    
+    document.getElementById('noBtn').addEventListener('click', () => {
+      const audio = document.getElementById('noSound');
+      audio.currentTime = 0;
+      audio.play();
+      
+      skipCount++;
+      updateCounters();
+      
+      // Animation effect
+      const container = document.querySelector('.container');
+      container.style.transform = 'translateY(-20px) rotateX(10deg)';
+      setTimeout(() => {
+        container.style.transform = '';
+      }, 500);
+      
+      alert("Bilkul nahi jaunga !! 😂");
+    });
+    
+    document.getElementById('shareBtn').addEventListener('click', () => {
+      const shareText = `"${funnyText.textContent}" - Baarish Hai Bhai! | Powered by Catalyst Crew`;
+      if (navigator.share) {
+        navigator.share({
+          title: 'Baarish Hai Bhai!',
+          text: shareText,
+          url: window.location.href
+        });
+      } else {
+        alert("Share this message: " + shareText);
+      }
+    });
+    
+    rainSlider.addEventListener('input', () => {
+      initRain();
+      
+      // Adjust rain sound volume
+      const volume = parseFloat(rainSlider.value) / 10;
+      rainSound.volume = volume;
+    });
+    
+    // Initialize the app
+    window.addEventListener('load', () => {
+      // Start rain animation
+      initRain();
+      animateRain();
+      
+      // Start rain timer
+      updateRainTime();
+      
+      // Play rain sound
+      rainSound.volume = 0.5;
+      rainSound.play().catch(e => console.log("Autoplay prevented:", e));
+      
+      // Initialize counters
+      updateCounters();
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initRain();
+    });
+  </script>
+</body>
+</html>
