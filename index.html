@@ -278,7 +278,115 @@
       opacity: 0.8;
       z-index: 30;
     }
+/* New Mobile Optimizations */
+@media (max-width: 480px) {
+  .sponsor-banner {
+    flex-direction: column;
+    padding: 8px;
+    height: auto;
+  }
+  
+  .sponsor-left {
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  
+  .sponsor-team {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 5px 0;
+  }
+  
+  .team-member {
+    min-width: 45%;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 30px 15px;
+    margin-top: 80px; /* More space for banner */
+    width: 95%;
+    transform: none !important; /* Disable 3D effect on small screens */
+  }
+  
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+  }
+  
+  p {
+    font-size: 1.1rem;
+    min-height: 70px;
+    padding: 10px;
+  }
+  
+  .counter {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .counter-box {
+    min-width: 28%;
+    padding: 10px 5px;
+  }
+  
+  .counter-value {
+    font-size: 1.6rem;
+  }
+  
+  .btn-container {
+    flex-direction: column;
+  }
+  
+  button {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  .umbrella, .cloud {
+    font-size: 2rem;
+    top: 90px; /* Position below banner */
+  }
+  
+  .umbrella {
+    right: 10px;
+  }
+  
+  .cloud {
+    left: 5px;
+  }
+  
+  .rain-intensity {
+    width: 95%;
+  }
+  
+  .footer {
+    font-size: 0.8rem;
+    bottom: 10px;
+  }
+}
+button {
+  min-height: 50px;
+}
 
+/* Prevent text selection on buttons */
+button, .counter-box {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Improved mobile landscape */
+@media (max-height: 500px) and (orientation: landscape) {
+  .container {
+    transform: scale(0.85);
+    margin-top: 40px;
+  }
+  
+  .umbrella, .cloud {
+    display: none;
+  }
+}
     canvas {
       position: absolute;
       top: 0;
