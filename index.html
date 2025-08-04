@@ -25,7 +25,7 @@
       perspective: 1000px;
     }
 
-    /* Catalyst Crew Sponsorship Banner */
+    /* Catalyst Crew Sponsorship Banner - Mobile Optimized */
     .sponsor-banner {
       position: absolute;
       top: 0;
@@ -34,97 +34,92 @@
       background: linear-gradient(135deg, #3c0a0a, #6c1a1a);
       color: white;
       text-align: center;
-      padding: 12px;
-      font-size: 1rem;
+      padding: 8px;
+      font-size: 0.8rem;
       z-index: 100;
       box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
     }
     
     .sponsor-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 5px;
+      margin-bottom: 5px;
     }
     
     .sponsor-logo {
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1rem;
       background: linear-gradient(45deg, #ff0000, #ff1e1e);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
     }
-        .sponsor-logo-img {
-      height: 35px;
-      margin-right: 10px;
+    
+    .sponsor-logo-img {
+      height: 25px;
+      margin-right: 5px;
       filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.7));
     }
 
-    /* Adjust sponsor-left to center items vertically */
-    .sponsor-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
     .sponsor-text {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       opacity: 0.9;
     }
     
     .sponsor-team {
       display: flex;
-      gap: 20px;
-      padding-right: 20px;
-      font-size: 0.8rem;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
     }
     
     .team-member {
       display: flex;
       flex-direction: column;
       align-items: center;
+      min-width: 45%;
+      margin: 2px 0;
     }
     
     .team-name {
       font-weight: bold;
       color: #00bfff;
+      font-size: 0.75rem;
     }
     
     .team-title {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       opacity: 0.8;
     }
 
     .container {
       text-align: center;
       background: rgba(0, 0, 0, 0.7);
-      padding: 40px;
+      padding: 30px 15px;
       border-radius: 20px;
       z-index: 20;
       max-width: 600px;
-      width: 90%;
+      width: 95%;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(10px);
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 40px; /* Added space for sponsor banner */
-    }
-
-    .container:hover {
-      transform: translateY(-10px) rotateX(3deg);
+      margin-top: 100px; /* Increased for mobile banner */
     }
 
     h1 {
-      font-size: 2.8rem;
-      margin-bottom: 25px;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
       text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
       background: linear-gradient(45deg, #ff0000, #ff1e1e);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: titleGlow 3s infinite alternate;
+      line-height: 1.3;
     }
 
     @keyframes titleGlow {
@@ -133,11 +128,11 @@
     }
 
     p {
-      font-size: 1.4rem;
-      margin-bottom: 30px;
-      min-height: 80px;
-      line-height: 1.6;
-      padding: 15px;
+      font-size: 1rem;
+      margin-bottom: 20px;
+      min-height: 60px;
+      line-height: 1.5;
+      padding: 12px;
       border-radius: 10px;
       background: rgba(0, 0, 0, 0.3);
       position: relative;
@@ -162,16 +157,15 @@
 
     .btn-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
     }
 
     button {
-      margin: 5px;
-      padding: 14px 28px;
-      font-size: 1.1rem;
+      margin: 0;
+      padding: 12px;
+      font-size: 1rem;
       border: none;
       border-radius: 50px;
       background: linear-gradient(45deg, #00bfff, #0066cc);
@@ -185,237 +179,104 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
+      width: 100%;
     }
 
     button i {
-      font-size: 1.2rem;
-    }
-
-    button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      background: linear-gradient(45deg, #00ccff, #0088ff);
-    }
-
-    button:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      font-size: 1.1rem;
     }
 
     #noBtn {
       background: linear-gradient(45deg, #ff4d4d, #cc0000);
     }
 
-    #noBtn:hover {
-      background: linear-gradient(45deg, #ff6666, #ff0000);
-    }
-
     #shareBtn {
       background: linear-gradient(45deg, #4CAF50, #2E7D32);
-    }
-
-    #shareBtn:hover {
-      background: linear-gradient(45deg, #66BB6A, #388E3C);
     }
 
     .counter {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin: 25px 0;
+      gap: 8px;
+      margin: 15px 0;
+      flex-wrap: wrap;
     }
 
     .counter-box {
       background: rgba(0, 0, 0, 0.4);
-      padding: 15px;
+      padding: 10px;
       border-radius: 10px;
-      min-width: 80px;
+      min-width: 28%;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .counter-value {
-      font-size: 2.2rem;
+      font-size: 1.4rem;
       font-weight: bold;
       color: #00bfff;
     }
 
     .counter-label {
-      font-size: 0.9rem;
+      font-size: 0.7rem;
       opacity: 0.8;
-      margin-top: 5px;
+      margin-top: 3px;
     }
 
     .umbrella {
       position: absolute;
-      top: 70px; /* Adjusted for sponsor banner */
-      right: 20px;
-      font-size: 3rem;
+      top: 110px;
+      right: 10px;
+      font-size: 2rem;
       animation: float 4s infinite ease-in-out;
       z-index: 30;
     }
 
     .cloud {
       position: absolute;
-      top: 60px; /* Adjusted for sponsor banner */
-      left: 10px;
-      font-size: 3rem;
+      top: 100px;
+      left: 5px;
+      font-size: 2rem;
       animation: float 5s infinite ease-in-out;
       z-index: 30;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+      50% { transform: translateY(-10px); }
     }
 
     .footer {
       position: absolute;
-      bottom: 20px;
+      bottom: 10px;
       width: 100%;
       text-align: center;
-      font-size: 0.9rem;
+      font-size: 0.75rem;
       opacity: 0.8;
       z-index: 30;
     }
-/* New Mobile Optimizations */
-@media (max-width: 480px) {
-  .sponsor-banner {
-    flex-direction: column;
-    padding: 8px;
-    height: auto;
-  }
-  
-  .sponsor-left {
-    justify-content: center;
-    margin-bottom: 8px;
-  }
-  
-  .sponsor-team {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 5px 0;
-  }
-  
-  .team-member {
-    min-width: 45%;
-    text-align: center;
-  }
-  
-  .container {
-    padding: 30px 15px;
-    margin-top: 80px; /* More space for banner */
-    width: 95%;
-    transform: none !important; /* Disable 3D effect on small screens */
-  }
-  
-  h1 {
-    font-size: 1.8rem;
-    line-height: 1.3;
-  }
-  
-  p {
-    font-size: 1.1rem;
-    min-height: 70px;
-    padding: 10px;
-  }
-  
-  .counter {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-  
-  .counter-box {
-    min-width: 28%;
-    padding: 10px 5px;
-  }
-  
-  .counter-value {
-    font-size: 1.6rem;
-  }
-  
-  .btn-container {
-    flex-direction: column;
-  }
-  
-  button {
-    width: 100%;
-    margin: 5px 0;
-  }
-  
-  .umbrella, .cloud {
-    font-size: 2rem;
-    top: 90px; /* Position below banner */
-  }
-  
-  .umbrella {
-    right: 10px;
-  }
-  
-  .cloud {
-    left: 5px;
-  }
-  
-  .rain-intensity {
-    width: 95%;
-  }
-  
-  .footer {
-    font-size: 0.8rem;
-    bottom: 10px;
-  }
-}
-button {
-  min-height: 50px;
-}
-
-/* Prevent text selection on buttons */
-button, .counter-box {
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* Improved mobile landscape */
-@media (max-height: 500px) and (orientation: landscape) {
-  .container {
-    transform: scale(0.85);
-    margin-top: 40px;
-  }
-  
-  .umbrella, .cloud {
-    display: none;
-  }
-}
-    canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 10;
-    }
 
     .rain-intensity {
-      margin: 20px auto;
-      width: 80%;
+      margin: 15px auto;
+      width: 90%;
       max-width: 300px;
       background: rgba(255, 255, 255, 0.1);
-      padding: 10px;
+      padding: 8px;
       border-radius: 50px;
     }
 
     .intensity-label {
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
+      font-size: 0.9rem;
     }
 
     input[type="range"] {
       width: 100%;
-      height: 10px;
+      height: 8px;
       -webkit-appearance: none;
       background: rgba(0, 0, 0, 0.3);
       border-radius: 5px;
@@ -424,31 +285,31 @@ button, .counter-box {
 
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none;
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: #00bfff;
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(0, 191, 255, 0.7);
+      box-shadow: 0 0 8px rgba(0, 191, 255, 0.7);
     }
 
     .message-box {
       position: relative;
-      margin: 25px 0;
+      margin: 15px 0;
     }
 
     .typing-indicator {
       position: absolute;
-      bottom: 10px;
-      right: 15px;
+      bottom: 8px;
+      right: 10px;
       display: flex;
       gap: 3px;
       opacity: 0.7;
     }
 
     .typing-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       background: #00bfff;
       border-radius: 50%;
       animation: typing 1.4s infinite ease-in-out;
@@ -460,61 +321,150 @@ button, .counter-box {
 
     @keyframes typing {
       0%, 60%, 100% { transform: translateY(0); }
-      30% { transform: translateY(-5px); }
+      30% { transform: translateY(-3px); }
     }
 
-    @media (max-width: 900px) {
-      .sponsor-banner {
-        flex-direction: column;
-        padding: 8px;
-        height: auto;
-      }
-      
-      .sponsor-team {
-        padding: 10px 0 0;
-        gap: 15px;
-      }
-      
-      .sponsor-text {
-        font-size: 0.8rem;
-      }
-      
-      .team-member {
-        font-size: 0.75rem;
-      }
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
     }
 
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      p { font-size: 1.2rem; }
-      .counter-box { min-width: 70px; }
-      .counter-value { font-size: 1.8rem; }
-      button { padding: 12px 20px; }
-      
+    /* Desktop styles */
+    @media (min-width: 768px) {
       .sponsor-banner {
-        font-size: 0.8rem;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 12px;
+        font-size: 1rem;
+      }
+      
+      .sponsor-left {
+        margin-bottom: 0;
       }
       
       .sponsor-logo {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+      }
+      
+      .sponsor-logo-img {
+        height: 35px;
       }
       
       .sponsor-team {
+        flex-wrap: nowrap;
+        padding-right: 20px;
+        width: auto;
+      }
+      
+      .team-member {
+        min-width: auto;
+      }
+      
+      .team-name {
+        font-size: 0.9rem;
+      }
+      
+      .container {
+        padding: 40px;
+        margin-top: 70px;
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+      }
+
+      .container:hover {
+        transform: translateY(-10px) rotateX(3deg);
+      }
+      
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 25px;
+      }
+      
+      p {
+        font-size: 1.4rem;
+        min-height: 80px;
+        margin-bottom: 30px;
+      }
+      
+      .btn-container {
+        flex-direction: row;
         flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        gap: 15px;
+      }
+      
+      button {
+        width: auto;
+        padding: 14px 28px;
+      }
+      
+      .counter {
+        gap: 15px;
+        margin: 25px 0;
+      }
+      
+      .counter-box {
+        min-width: 80px;
+        padding: 15px;
+      }
+      
+      .counter-value {
+        font-size: 2.2rem;
+      }
+      
+      .counter-label {
+        font-size: 0.9rem;
+      }
+      
+      .umbrella {
+        top: 80px;
+        right: 20px;
+        font-size: 3rem;
+      }
+      
+      .cloud {
+        top: 70px;
+        left: 10px;
+        font-size: 3rem;
+      }
+      
+      .footer {
+        bottom: 20px;
+        font-size: 0.9rem;
+      }
+      
+      .rain-intensity {
+        margin: 20px auto;
+        padding: 10px;
+      }
+      
+      .intensity-label {
+        font-size: 1rem;
+      }
+    }
+
+    /* Landscape optimization */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .container {
+        transform: scale(0.85);
+        margin-top: 40px;
+      }
+      
+      .umbrella, .cloud {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
   <!-- Catalyst Crew Sponsorship Banner -->
- <div class="sponsor-banner">
+  <div class="sponsor-banner">
     <div class="sponsor-left">
-      <!-- Added logo here -->
-      <img src="catalyst crew banner.jpg" alt="Catalyst Crew Logo" class="sponsor-logo-img">
+      <img src="catalyst_crew_banner.jpg" alt="Catalyst Crew Logo" class="sponsor-logo-img">
       <div class="sponsor-logo">CATALYST CREW</div>
-      <div class="sponsor-text"></div>
     </div>
     
     <div class="sponsor-team">
@@ -594,6 +544,7 @@ button, .counter-box {
   </audio>
   
   <script>
+    // ... JavaScript remains unchanged from original ...
     const messages = [
       "Bike leke nikle the, paani ne dhoka de diya. 💔",
       "Attendance gayi bhaad mein, chai aur pakode laao! ☕🧆",
